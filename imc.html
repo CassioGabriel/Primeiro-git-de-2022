@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>Calculadora IMC</title>
+        <meta charset="UTF8">
+
+        <style>
+
+            .titulo{
+                font-family: sans-serif;
+                text-align: center;
+                margin-top: 70px;
+                border: solid 1px lightslategray;
+                border-radius: 15px;
+            }
+
+            .entrada{
+                text-align: center;
+               
+                font-family: sans-serif;
+            }
+            .entrada fieldset{
+                display: inline;
+                border-radius: 8px;
+                border: solid 2px lightseagreen;
+                text-align: left;
+            }
+
+            .entrada input{
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: solid 1px black;
+                background-color: lightslategray;
+            }
+
+            .botao{
+                text-align: center;
+                margin-top: 25px;
+            
+            }
+
+            .botao button{
+                border: none;
+                font-family: sans-serif;
+                padding: 10 20;
+                border-radius: 8px;
+                cursor: pointer;
+                background-color: lightseagreen;
+                margin-bottom: 25px;
+            }
+
+            #body{
+                
+                border-radius: 15px;
+                background-color: lightslategray;
+            }
+
+        </style>
+
+
+        <script>
+            
+            let calc3
+            function calcular(){
+            
+                let calc1 = document.getElementById("peso").value
+                let calc2 = document.getElementById("altura").value
+
+                calc3 = parseFloat(calc1 / (calc2 * calc2)) 
+        
+                testeDaPeso()
+                
+            }
+
+            function testeDaPeso(){
+
+                if(calc3 < 18.5){
+                    alert("Magreza")
+                }else if(calc3 >= 18.5 && calc3 <= 24.9){
+                    alert("Normal")
+                }else if( calc3 >= 25.0 && calc3 <= 29.9){
+                    alert("Sobrepeso")
+                }else if( calc3 >= 30.0 && calc3 <= 39.9 ){
+                    alert("Obesidade")
+                }else if( calc3 >= 40.0){
+                    alert("Obesidade Grave")
+                }
+                
+            }
+
+
+        </script>
+    </head>
+
+    <body>
+        <div id="body">
+            <div class="titulo">
+                <h2>Calculadora de IMC</h2>
+            </div>
+
+            <div class="entrada">
+                <fieldset>
+                    <legend>Digite seu peso</legend>
+                    <input id="peso"  type="number">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Digite sua altura</legend>
+                    <input id="altura"  type="number">
+                </fieldset>
+            </div>
+
+            <div class="botao">
+                <button id="calc" onclick="calcular()">Calcular</button>
+            </div>
+        </div>
+
+    </body>
+</html>
